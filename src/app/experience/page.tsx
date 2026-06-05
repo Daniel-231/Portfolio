@@ -19,14 +19,14 @@ const experiences = [
             { name: "React", icon: ReactOriginalIcon },
             { name: "Python", icon: PythonOriginalIcon },
             { name: "MongoDB", icon: MongodbOriginalIcon },
-            { name: "NodeJS", icon: NodejsOriginalIcon },
+            { name: "Node.js", icon: NodejsOriginalIcon },
         ],
     },
     {
         title: "Freelance Software Engineer",
         company: "Cosman-IT",
         location: "Remote",
-        period: "Jul 2025 – Dec 2025",
+        period: "Jul – Dec 2025",
         bullets: [
             "Improved UI with HTML/CSS/Bootstrap and JavaScript for better responsiveness.",
             "Wrote RESTful APIs with Python Flask to handle data flow and backend logic.",
@@ -41,32 +41,49 @@ const experiences = [
 
 export default function Experience(): React.ReactNode {
     return (
-        <section className="max-w-170 mx-auto py-8">
-            <h2 className="text-3xl font-extrabold mb-5">
+        <main className="flex-1 relative z-10 flex flex-col gap-12 py-6 lg:py-12 animate-fade-in">
+            <p className="text-xs font-medium tracking-[2px] uppercase opacity-60">
                 Experience
-            </h2>
-            <div className="ml-3 space-y-8">
-                {experiences.map((exp, i: number) => (
+            </p>
+
+            <div className="grid grid-cols-1 gap-6">
+                {experiences.map((exp, i) => (
                     <div
-                        className="relative" key={i}>
-                        <div className="">
-                            <p style={{fontSize: 24, fontWeight: 500, margin: 0}}>{exp.title}</p>
-                            <span className="text-xl">{exp.period}</span>
-                        </div>
-                        <p className="text-2xl">
-                            {exp.company}{exp.location ? ` · ${exp.location}` : ""}
+                        key={i}
+                        className="group p-8 rounded-3xl border border-white/10 hover:border-white/30 
+                                   bg-white/5 hover:bg-white/10 transition-all hover:scale-[1.02] duration-300"
+                    >
+                        <p className="text-xs tracking-[1px] uppercase opacity-50 mb-3">
+                            {exp.period}
                         </p>
-                        <ul style={{fontSize: 16}}>
-                            {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
+                        <p className="font-medium text-2xl mb-1">{exp.title}</p>
+                        <p className="text-sm opacity-60 mb-6">
+                            {exp.company} • {exp.location}
+                        </p>
+
+                        <ul className="space-y-3 mb-8">
+                            {exp.bullets.map((bullet, j) => (
+                                <li key={j} className="text-sm opacity-75 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-white/30">
+                                    {bullet}
+                                </li>
+                            ))}
                         </ul>
-                        <div className="flex">
+
+                        <div className="flex flex-wrap gap-3">
                             {exp.tags.map(({ name, icon: Icon }) => (
-                                <Icon key={name} size="22px" />
+                                <div
+                                    key={name}
+                                    className="flex items-center gap-2 px-5 py-2.5 rounded-3xl text-sm font-medium 
+                                               bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+                                >
+                                    {Icon && <Icon size="18px" />}
+                                    {name}
+                                </div>
                             ))}
                         </div>
                     </div>
                 ))}
             </div>
-        </section>
+        </main>
     );
 }

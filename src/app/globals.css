@@ -5,6 +5,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-geist-mono);
+  --font-sniglet: var(--font-sniglet-var);
 }
 
 :root {
@@ -22,22 +23,23 @@
 }
 
 body {
-  padding: 100px;
+  /* Mobile-first responsive padding */
+  padding: 2rem 1rem;
+  @apply lg:px-20 lg:py-16;
+
   background-color: var(--background);
   background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
   background-size: 28px 28px;
-
   color: var(--foreground);
   font-family: var(--font-dm-sans), Arial, sans-serif;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-          radial-gradient(ellipse at 60% 40%, rgba(109, 40, 217, 0.15) 0%, transparent 60%),
-          radial-gradient(ellipse at 30% 70%, rgba(37, 99, 235, 0.12) 0%, transparent 55%);
-  pointer-events: none;
-  z-index: 0;
+/* Minimal smooth animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.7s ease forwards;
 }

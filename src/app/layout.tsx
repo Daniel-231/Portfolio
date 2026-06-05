@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Sidebar from "@/app/components/Sidebar";
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Sniglet } from "next/font/google";
 import "./globals.css";
 
-// Old Original Fonts
-/*
+
+/* Old Original Fonts
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -14,14 +15,22 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
 */
 
-// New Font
+// New Fonts
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
 });
+
+const sniglet = Sniglet ({
+  variable: "--font-sniglet-var",
+  subsets: ["latin"],
+  weight: ["400", "800"],
+});
+
 
 export const metadata: Metadata = {
   title: "Daniil Klimenko",
@@ -33,10 +42,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${sniglet.variable} h-full antialiased`} // Passing Fonts
     >
       <body className="min-h-full flex flex-col">
         <Sidebar />
