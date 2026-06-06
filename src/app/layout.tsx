@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Sidebar from "@/app/components/Sidebar";
+import { ThemeSwitcherProvider } from "./components/ThemeSwitcher";
 import { DM_Sans, Sniglet } from "next/font/google";
 import "./globals.css";
 
@@ -46,11 +47,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme={"dark"}
       className={`${dmSans.variable} ${sniglet.variable} h-full antialiased`} // Passing Fonts
     >
       <body className="min-h-full flex flex-col">
-        <Sidebar />
-        {children}
+        <ThemeSwitcherProvider>
+          <Sidebar />
+          {children}
+        </ThemeSwitcherProvider>
       </body>
     </html>
   );

@@ -1,45 +1,210 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-dm-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-sniglet: var(--font-sniglet-var);
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
 }
 
+/* ====================== DARK MODE (Default) ====================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --grid-color: rgba(229, 229, 229, 0.4);
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --grid-color: rgba(55, 65, 81, 0.18);
+  --accent: #a855f7;
+  --accent-gradient: linear-gradient(135deg, #a855f7, #c084fc);
+  --accent-soft: rgba(168, 85, 247, 0.12);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --grid-color: rgba(38, 38, 38, 0.4);
-  }
+/* ====================== ====================== */
+[data-theme="light"] {
+  --background: #f8f9fa;
+  --foreground: #0f172a;
+  --grid-color: rgba(15, 23, 42, 0.09);
+  --accent: #6d28d9;
+  --accent-gradient: linear-gradient(135deg, #6d28d9, #a78bfa);
+  --accent-soft: rgba(109, 40, 217, 0.07);
+  --card-border: rgba(15, 23, 42, 0.12);
+  --card-bg: rgba(255, 255, 255, 0.92);
 }
 
+/* Light mode body */
+[data-theme="light"] body {
+  background: 
+    radial-gradient(at 40% 20%, rgba(109, 40, 217, 0.06) 0%, transparent 60%),
+    linear-gradient(145deg, #f8f9fa 0%, #f1f1f3 50%, #e9e9eb 100%);
+  color: var(--foreground);
+}
+
+/* cards in light mode */
+[data-theme="light"] .glass,
+[data-theme="light"] .group {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .glass:hover,
+[data-theme="light"] .group:hover {
+  background: #ffffff;
+  border-color: rgba(109, 40, 217, 0.25);
+  box-shadow: 0 20px 40px -15px rgba(109, 40, 217, 0.15);
+}
+
+/* Better button borders in light mode */
+[data-theme="light"] button.border {
+  border-color: rgba(15, 23, 42, 0.25) !important;
+}
+
+[data-theme="light"] button.border:hover {
+  border-color: #6d28d9 !important;
+}
+
+/* Divider */
+[data-theme="light"] .w-full.h-px {
+  background: rgba(15, 23, 42, 0.15) !important;
+  opacity: 1 !important;
+}
+
+
+/* ====================== GLOBAL STYLES ====================== */
 body {
-  /* Mobile-first responsive padding */
   padding: 2rem 1rem;
   @apply lg:px-20 lg:py-16;
 
-  background-color: var(--background);
-  background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
-  background-size: 28px 28px;
+  /* Dark Mode Gradient */
+  background: 
+    radial-gradient(at 35% 25%, var(--accent-soft) 0%, transparent 65%),
+    linear-gradient(145deg, var(--background) 0%, #111111 45%, #1a1a2e 80%, var(--background) 100%);
+
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: var(--font-dm-sans), Arial, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-/* Minimal smooth animation */
+/* Light Mode - Much cleaner gradient */
+[data-theme="light"] body {
+  background: 
+    radial-gradient(at 40% 20%, rgba(124, 58, 237, 0.06) 0%, transparent 50%),
+    linear-gradient(145deg, #f8f9fa 0%, #f1f1f1 50%, #e8e8e8 100%);
+}
+
+/* Grid overlay */
+body::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.65;
+}
+
+/* ====================== REUSABLE CLASSES ====================== */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="light"] .glass {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(124, 58, 237, 0.18); /* accent-tinted */
+  box-shadow: 0 10px 28px -18px rgba(0, 0, 0, 0.25);
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: hsla(var(--accent), 0.3);
+  transform: translateY(-4px);
+}
+
+[data-theme="light"] .glass:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+/* Text gradient */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Accent left border */
+.card-accent {
+  border-left: 5px solid var(--accent);
+}
+
+/* Gradient Button */
+.btn-gradient {
+  background: var(--accent-gradient);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+[data-theme="light"] .btn-gradient {
+  color: white;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -8px var(--accent);
+}
+
+/* Timeline line */
+.timeline-line {
+  background: var(--accent-gradient);
+}
+
+/* ====================== ANIMATIONS ====================== */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(40px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 .animate-fade-in {
-  animation: fadeInUp 0.7s ease forwards;
+  animation: fadeInUp 0.85s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Floating orbs - Only show in dark mode */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.08;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.orb-1 {
+  background: var(--accent);
+  width: 480px;
+  height: 480px;
+  top: -12%;
+  left: -15%;
+}
+
+.orb-2 {
+  background: var(--accent);
+  width: 580px;
+  height: 580px;
+  bottom: -25%;
+  right: -18%;
+  opacity: 0.06;
+}
+
+[data-theme="light"] .orb {
+  display: none;
 }

@@ -20,7 +20,7 @@ const skills = {
   frontend: [
     { name: "React.js", icon: ReactOriginalIcon },
     { name: "Next.js", icon: NextjsOriginalIcon },
-    {name: "React Native", icon: ReactOriginalIcon},
+    { name: "React Native", icon: ReactOriginalIcon },
     { name: "TypeScript", icon: TypescriptOriginalIcon },
     { name: "Tailwind", icon: TailwindOriginalIcon },
     { name: "Bootstrap", icon: BootstrapOriginalIcon },
@@ -45,7 +45,6 @@ const skills = {
 export default function Home(): React.ReactNode {
   return (
     <main className="flex-1 relative z-10 flex flex-col gap-20 lg:gap-24 py-6 lg:py-12 animate-fade-in">
-
       {/* STACK SECTION */}
       <section>
         <p className="text-xs font-medium tracking-[2px] uppercase opacity-60 mb-8">
@@ -58,7 +57,7 @@ export default function Home(): React.ReactNode {
               <p className="text-sm font-medium uppercase tracking-widest opacity-50">
                 {category}
               </p>
-              
+
               <div className="flex flex-wrap gap-3">
                 {items.map((skill) => {
                   const Icon = skill.icon;
@@ -66,8 +65,11 @@ export default function Home(): React.ReactNode {
                     <div
                       key={skill.name}
                       className="flex items-center gap-2 px-5 py-2.5 rounded-3xl text-sm font-medium 
-                                 bg-white/5 hover:bg-white/10 border border-white/10 
-                                 hover:border-white/30 hover:scale-105 active:scale-95 transition-all"
+                   border transition-all hover:scale-105 active:scale-95
+                   bg-[color-mix(in_srgb,var(--foreground)_6%,transparent)]
+                   border-[color-mix(in_srgb,var(--foreground)_18%,transparent)]
+                   hover:border-[color-mix(in_srgb,var(--foreground)_35%,transparent)]
+                   hover:bg-[color-mix(in_srgb,var(--foreground)_9%,transparent)]"
                     >
                       {Icon && <Icon size="18px" />}
                       <span>{skill.name}</span>
@@ -118,9 +120,7 @@ export default function Home(): React.ReactNode {
             </p>
             <p className="font-medium text-xl mb-1">{card.title}</p>
             <p className="text-sm opacity-60 mb-5">{card.period}</p>
-            <p className="text-sm opacity-75 leading-relaxed">
-              {card.desc}
-            </p>
+            <p className="text-sm opacity-75 leading-relaxed">{card.desc}</p>
           </Link>
         ))}
       </section>
