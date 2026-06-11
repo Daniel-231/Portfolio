@@ -1,40 +1,47 @@
 import React from "react";
 import ReactOriginalIcon from "react-devicons/react/original";
 import NodejsOriginalIcon from "react-devicons/nodejs/original";
-import PythonOriginalIcon from "react-devicons/python/original";
-import MongodbOriginalIcon from "react-devicons/mongodb/original";
+import TailwindOriginalIcon from "react-devicons/tailwindcss/original";
 import NextjsOriginalIcon from "react-devicons/nextjs/original";
 import TypescriptOriginalIcon from "react-devicons/typescript/original";
+import FlaskOriginalIcon from "react-devicons/flask/original";
+import DatabaseOriginalIcon from "react-devicons/sqldeveloper/original";
+import SqliteOriginalIcon from "react-devicons/sqlite/original";
 
 const projects = [
     {
-        title: "SecureWatch Dashboard",
-        description: "A real-time threat intelligence dashboard built during my internship. Aggregates scraped data from multiple sources, visualises anomalies, and sends alerts via webhook integrations.",
-        period: "2024",
-        tags: [
-            { name: "React", icon: ReactOriginalIcon },
-            { name: "Python", icon: PythonOriginalIcon },
-            { name: "MongoDB", icon: MongodbOriginalIcon },
-            { name: "Node.js", icon: NodejsOriginalIcon },
-        ],
-    },
-    {
         title: "Portfolio",
         description: "This site. Minimal, dark-first personal portfolio built with Next.js and Tailwind. Fully responsive with a clean layout focused on readability.",
-        period: "2025",
+        link: "https://github.com/Daniel-231/Portfolio",
+        period: "2026",
         tags: [
             { name: "Next.js", icon: NextjsOriginalIcon },
             { name: "TypeScript", icon: TypescriptOriginalIcon },
-            { name: "React", icon: ReactOriginalIcon },
+            { name: "Tailwind", icon: TailwindOriginalIcon },
+
         ],
     },
     {
-        title: "AI Support Chatbot",
-        description: "Freelance project for Cosman-IT. Chatbot backed by a Flask API with PDF reference parsing and user feedback loop. Integrated into an existing React frontend.",
+        title: "AI-Journal",
+        description: "AI-powered journaling app that generates daily prompts, analyzes entries for mood and themes, and provides insights. Built with a React frontend and NodeJS backend, leveraging SQLite for storage.",
+        link: "https://github.com/Daniel-231/AI-Journal",
         period: "2025",
         tags: [
-            { name: "Python", icon: PythonOriginalIcon },
             { name: "React", icon: ReactOriginalIcon },
+            { name: "SQLlite", icon: SqliteOriginalIcon },
+            { name: "Node.js", icon: NodejsOriginalIcon },
+            { name: "Tailwind", icon: TailwindOriginalIcon },
+        ],
+    },
+    {
+        title: "Personal Reviewer",
+        description: "Fullstack web app that allows users to create and manage reviews for products, movies, etc. Features include user authentication, CRUD operations for reviews, and a responsive design. Built with React, Flask, and PostgreSQL.",
+        link: "https://github.com/Daniel-231/AI-Journal",
+        period: "2025",
+        tags: [
+            { name: "React", icon: ReactOriginalIcon },
+            { name: "Postgres", icon: DatabaseOriginalIcon },
+            { name: "Flask", icon: FlaskOriginalIcon },
         ],
     },
 ];
@@ -43,18 +50,22 @@ export default function Projects(): React.ReactNode {
     return (
         <main className="flex-1 relative z-10 flex flex-col gap-12 py-6 lg:py-12 animate-fade-in">
             <p className="text-xs font-medium tracking-widest uppercase opacity-40 mb-6">
-                Projects
+                Personal Projects
             </p>
 
             <div className="grid grid-cols-1 gap-6">
                 {projects.map((project, i) => (
-                    <div
+                    <a
                         key={i}
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="group p-6 rounded-xl transition-all duration-300 
                                    hover:scale-[1.02] active:scale-[0.98]
                                    bg-[color-mix(in_srgb,var(--foreground)_4%,transparent)]
                                    border border-[color-mix(in_srgb,var(--foreground)_10%,transparent)]
-                                   hover:border-[color-mix(in_srgb,var(--foreground)_20%,transparent)]"
+                                   hover:border-[color-mix(in_srgb,var(--foreground)_20%,transparent)]
+                                   cursor-pointer block"
                     >
                         <p className="text-xs font-medium tracking-widest uppercase opacity-40 mb-3">
                             {project.period}
@@ -80,7 +91,7 @@ export default function Projects(): React.ReactNode {
                                 </span>
                             ))}
                         </div>
-                    </div>
+                    </a>
                 ))}
             </div>
         </main>

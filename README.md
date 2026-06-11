@@ -1,6 +1,6 @@
 # Daniil Klimenko — Personal Portfolio
 
-Modern, minimalistic personal portfolio website built with **Next.js 16**, **TypeScript**, **Tailwind CSS**, and a custom glassmorphic dark design.
+Modern, minimalistic personal portfolio website built with **Next.js 16**, **TypeScript**, **Tailwind CSS**, and custom design.
 
 ## 🛠 Tech Stack
 
@@ -10,9 +10,9 @@ Modern, minimalistic personal portfolio website built with **Next.js 16**, **Typ
 - TypeScript
 - Tailwind CSS v4
 
-**Design & Icons:**
-- Custom glassmorphism + dark theme
+**Icons:**
 - `react-devicons` for technology logos
+- `lucide-react` general icons
 
 **Tools:**
 - ESLint (with Next.js config)
@@ -42,7 +42,7 @@ You are **not permitted** to:
 
 See the [LICENSE](LICENSE) file for full details.
 
-## 🧑‍💻 Getting Started
+## Getting Started
 
 ```bash
 # Clone the repository
