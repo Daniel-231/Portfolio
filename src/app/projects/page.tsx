@@ -36,10 +36,11 @@ const projects = [
     {
         title: "Personal Reviewer",
         description: "Fullstack web app that allows users to create and manage reviews for products, movies, etc. Features include user authentication, CRUD operations for reviews, and a responsive design. Built with React, Flask, and PostgreSQL.",
-        link: "https://github.com/Daniel-231/AI-Journal",
+        link: "https://github.com/Daniel-231/Personal-Reviewer",
         period: "2025",
         tags: [
             { name: "React", icon: ReactOriginalIcon },
+            { name: "Typescript", icon: TypescriptOriginalIcon },
             { name: "Postgres", icon: DatabaseOriginalIcon },
             { name: "Flask", icon: FlaskOriginalIcon },
         ],

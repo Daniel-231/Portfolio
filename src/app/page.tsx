@@ -48,7 +48,7 @@ export default function Home(): React.ReactNode {
       {/* STACK SECTION */}
       <section>
         <p className="text-xs font-medium tracking-[2px] uppercase opacity-60 mb-8">
-          STACK
+          MY SKILLS
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-10 lg:gap-x-16 gap-y-12">

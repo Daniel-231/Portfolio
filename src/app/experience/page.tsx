@@ -3,13 +3,19 @@ import ReactOriginalIcon from "react-devicons/react/original";
 import NodejsOriginalIcon from "react-devicons/nodejs/original";
 import PythonOriginalIcon from "react-devicons/python/original";
 import MongodbOriginalIcon from "react-devicons/mongodb/original";
+import AWSOriginalIcon from "react-devicons/amazonwebservices/original-wordmark";
+import HtmlOriginalIcon from "react-devicons/html5/original";
+import CssOriginalIcon from "react-devicons/css3/original";
+import BootstrapOriginalIcon from "react-devicons/bootstrap/plain";
+import FlaskOriginalIcon from "react-devicons/flask/original";
+import AzureOriginalIcon from "react-devicons/azure/original-wordmark";
 
 const experiences = [
     {
         title: "Software Development Intern",
         company: "Trust-IT Security Intelligence",
         location: "Athens, Greece",
-        period: "Jul 2024 – Mar 2025",
+        period: "Jul 2024 - Mar 2025",
         bullets: [
             "Built full-stack web applications using Python, JavaScript, React.js, MongoDB, and AWS EC2.",
             "Optimized code to improve load times and scalability.",
@@ -20,21 +26,27 @@ const experiences = [
             { name: "Python", icon: PythonOriginalIcon },
             { name: "MongoDB", icon: MongodbOriginalIcon },
             { name: "Node.js", icon: NodejsOriginalIcon },
+            { name: "AWS EC2", icon: AWSOriginalIcon },
         ],
     },
     {
         title: "Freelance Software Engineer",
         company: "Cosman-IT",
         location: "Remote",
-        period: "Jul – Dec 2025",
+        period: "Jul - Dec 2025",
         bullets: [
             "Improved UI with HTML/CSS/Bootstrap and JavaScript for better responsiveness.",
             "Wrote RESTful APIs with Python Flask to handle data flow and backend logic.",
             "Added AI-driven chatbot features including user feedback and PDF reference handling.",
         ],
         tags: [
-            { name: "React", icon: ReactOriginalIcon },
+            { name: "HTML", icon: HtmlOriginalIcon },
+            { name: "CSS", icon: CssOriginalIcon },
+            { name: "JavaScript", icon: NodejsOriginalIcon },
+            { name: "Bootstrap", icon: BootstrapOriginalIcon },
+            { name: "Flask", icon: FlaskOriginalIcon },
             { name: "Python", icon: PythonOriginalIcon },
+            { name: "Azure", icon: AzureOriginalIcon },
         ],
     },
 ];
