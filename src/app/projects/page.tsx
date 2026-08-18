@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import ReactOriginalIcon from "react-devicons/react/original";
 import NodejsOriginalIcon from "react-devicons/nodejs/original";
 import TailwindOriginalIcon from "react-devicons/tailwindcss/original";
@@ -46,6 +47,12 @@ const projects = [
         ],
     },
 ];
+
+export const metadata: Metadata = {
+    title: "Projects",
+    description:
+        "Personal projects by Daniil Klimenko — full-stack apps built with React, Next.js, Flask, and more.",
+};
 
 export default function Projects(): React.ReactNode {
     return (

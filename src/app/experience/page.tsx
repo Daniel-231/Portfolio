@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import ReactOriginalIcon from "react-devicons/react/original";
 import NodejsOriginalIcon from "react-devicons/nodejs/original";
 import PythonOriginalIcon from "react-devicons/python/original";
@@ -50,6 +51,12 @@ const experiences = [
         ],
     },
 ];
+
+export const metadata: Metadata = {
+    title: "Experience",
+    description:
+        "Work experience — internship and freelance software engineering roles held by Daniil Klimenko.",
+};
 
 export default function Experience(): React.ReactNode {
     return (

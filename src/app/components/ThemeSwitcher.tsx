@@ -22,6 +22,9 @@ export const ThemeSwitcherProvider = ({ children }: { children: React.ReactNode 
     const htmlTheme = document.documentElement.getAttribute("data-theme") as Theme | null;
     
     const initialTheme = saved || htmlTheme || "dark";
+    // One-time sync from localStorage/DOM (unavailable during SSR) into React
+    // state on mount, to avoid a hydration mismatch — not a cascading update.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setTheme(initialTheme);
     document.documentElement.setAttribute("data-theme", initialTheme);
   }, []);

@@ -33,11 +33,11 @@ export default function Sidebar(): React.ReactNode {
           className="font-bold leading-none mb-6"
           style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
         >
-          <a href="/">
+          <Link href="/">
             Daniil
             <br />
             Klimenko
-          </a>
+          </Link>
         </h1>
 
         <p

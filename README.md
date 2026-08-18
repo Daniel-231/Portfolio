@@ -16,14 +16,13 @@ Modern, minimalistic personal portfolio website built with **Next.js 16**, **Typ
 
 **Tools:**
 - ESLint (with Next.js config)
-- Vercel / GitHub Pages ready
+- Vercel ready
 
 ## 📂 Pages
 
 - **`/`** — Home (Stack + Highlight Cards)
 - **`/experience`** — Detailed work experience with timeline
 - **`/projects`** — Project showcase
-- **`/about`** — About page (in progress)
 
 ## 📄 License
 
